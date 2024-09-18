@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejrcicio 3</title>
+  </head>
+  <body>
+    <p id="test1">Cuestion numero 1</p>
+    <button id="true" type="button" onclick="test(1,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(1)">Falso</button>
+
+    <p id="test2">Cuestion numero 2</p>
+    <button id="true" type="button" onclick="test(2,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(2)">Falso</button>
+
+    <p id="test3">Cuestion numero 3</p>
+    <button id="true" type="button" onclick="test(3,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(3)">Falso</button>
+
+    <p id="test4">Cuestion numero 4</p>
+    <button id="true" type="button" onclick="test(4,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(4)">Falso</button>
+
+    <p id="test5">Cuestion numero 5</p>
+    <button id="true" type="button" onclick="test(5,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(5)">Falso</button>
+
+    <p id="test6">Cuestion numero 6</p>
+    <button id="true" type="button" onclick="test(6,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(6)">Falso</button>
+
+    <p id="test7">Cuestion numero 7</p>
+    <button id="true" type="button" onclick="test(7,1)">Verdadero</button>
+    <button id="false" type="button" onclick="test(7)">Falso</button>
+
+    <script>
+      function test(number, boolean = 0) {
+        let value = "test" + number;
+        let pregunta = document.getElementById(value);
+        pregunta.style.color = boolean ? "green" : "red";
+      }
+    </script>
+  </body>
+</html>

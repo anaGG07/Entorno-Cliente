@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+
+  <body>
+    <h1>Cambio de imagenes con JavaScript</h1>
+    <img
+      id="image"
+      onclick="cambiaPic()"
+      src="https://i.blogs.es/4b8194/html5/1366_521.jpg"
+      alt="HTML 5"
+      width="200"
+      height="180"
+    />
+    <p>Haz click sobre la imagen para cambiarlas</p>
+
+    <script>
+      function cambiaPic() {
+        var image = document.getElementById("image");
+        console.log(image.src);
+        if (image.src.match("etiquetas")) 
+        {
+            image.src = "https://i.blogs.es/4b8194/html5/1366_521.jpg";
+        }
+        else if(image.src.match("encrypted")) 
+        {
+            image.src = "https://www.masterseosem.com/images/etiquetas-html.webp";
+          
+        }
+        else if(image.src.match("hostinger"))
+        {
+            image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr5kve8uJvA1JcDmKbSh1a_JFvLt5tUI8n2A&s";
+        }
+        else
+        {
+            image.src = "https://www.hostinger.es/tutoriales/wp-content/uploads/sites/7/2018/11/what-is-html.webp";
+        }
+
+      }
+    </script>
+  </body>
+</html>
