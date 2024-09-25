@@ -1,37 +1,38 @@
+<!-- Crea una página con tres botones que, al hacer clic, muestran un mensaje de bienvenida 
+ en ruso, español o inglés utilizando document.write(), lo que reemplaza el contenido 
+ de la página con el mensaje correspondiente. -->
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejercicio 5</title>
+    <title>Ejercicio 8</title>
   </head>
   <body>
     <!-- Primer botón -->
-    <p id="ruso"></p>
-
+     
     <button
       type="button"
-      onclick="document.getElementById('ruso').innerHTML = 'Bienvenido en Ruso' "
+      onclick="document.write('<p>Bienvenido en Ruso</p>')"
     >
       Ruso
     </button>
 
     <!-- Segundo botón -->
-    <p id="español"></p>
 
     <button
       type="button"
-      onclick="document.getElementById('español').innerHTML = 'Bienvenido en Español' "
+      onclick="document.write('<p>Bienvenido en Español</p>')"
     >
       español
     </button>
 
     <!-- Tercer botón -->
-    <p id="ingles"></p>
 
     <button
       type="button"
-      onclick="document.getElementById('ingles').innerHTML = 'Bienvenido en Ingles' "
+      onclick="document.write('<p>Bienvenido en Ingles</p>')"
     >
       ingles
     </button>

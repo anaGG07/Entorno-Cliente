@@ -1,6 +1,6 @@
 //---------- Glosario de nomenclaturas ------------
 /**
- * 1ª letra es el ámbito: [local(l), global(g), argumento(a)]
+ * 1ª letra es el ámbito: [local(l), global(g), argumento(a), objeto(o)]
  * 2ª letra es el tipo de dato: [boolean(b), String(s), Number(n), Double(d)...]
  * 3ª letra(opcional), complementa el tipo de dato [BigInt(bi)...]
  * Variable de retorno -> _rt
@@ -117,7 +117,6 @@ export const esPrimo = (an_num = 0) => {
   return lb_rt;
 };
 
-
 /**
  * ? FUNCIÓN 7
  */
@@ -149,7 +148,6 @@ export const factorial = (an_number = 1) => {
   // }
   // return ln_rt
 };
-
 
 /**
  * ? FUNCIÓN 8
@@ -212,7 +210,7 @@ export const operations = (an_array) => {
     ln_av /= ln_size;
 
     let ln_sort = an_array.sort();
-    
+
     // Comprobar si el tamaño del array es par o impar
     if (esPar(ln_size)) {
       let ln_div = ln_size / 2;
@@ -225,6 +223,129 @@ export const operations = (an_array) => {
     ln_rt = { ln_max, ln_min, ln_av, ln_med };
   }
 
-
   return ln_rt;
 };
+
+/**
+ * ? FUNCIÓN 10
+ */
+
+/**
+ * @description: Dado un array de números, calcular los pares mediante metodos de arrays
+ * @param {array} an_array
+ * @returns {object}
+ * @error null
+ */
+export const pares = (an_array = []) =>
+  an_array.filter((ln_num) => ln_num % 2 === 0);
+
+// FORMA LARGA
+// export const pares = (an_array=[]) => {
+//   let ln_pares = an_array.filter(ln_num => ln_num % 2 === 0);
+//   return ln_pares;
+// }
+
+/**
+ * ? FUNCIÓN 11
+ */
+
+/**
+ * @description: Dado un array de números, devolver el ultimo numero impar
+ * @param {array} an_array
+ * @returns {object}
+ * @error null
+ */
+export const lastImpar = (an_array = []) =>
+  an_array.filter((ln_num) => ln_num % 2 !== 0).pop();
+
+//FORMA LARGA
+//  export const lastImpar = (an_array=[]) => {
+//   let ln_impares = an_array.filter(ln_num => ln_num % 2 !== 0);
+//   return ln_impares.pop();
+//  }
+
+// <-ES14 (2023) VERSION 2->
+//export const lastImp = (an_array = []) => evaluarNumeros.findLast(n => n % 2 !== 0);
+
+/**
+ * ? FUNCIÓN 12
+ */
+
+/**
+ * @description: Dado un array de ciudades, buscar la ciudad dada en el segundo parámetro y si la encuentra, la sustituye por el tercer parámetro.
+ * @param {array} as_array
+ * @param {String} as_ciudad
+ * @param {String} as_newCiudad
+ * @returns {Array}
+ */
+
+export const replaceCity = (as_array = [], as_oldCity, as_newCity) => {
+  return as_array.map((ln_city) =>
+    ln_city === as_oldCity ? as_newCity : ln_city
+  );
+};
+
+/**
+ * ? FUNCIÓN 13
+ */
+
+/**
+ * @description: Filtrar lastransacciones cuyo monto sea mayor que 12, ordenadas de mayor a menor
+ * @param {Array} ao_ciudad
+ * @returns {Array}
+ *
+ */
+export const filterTrans = (ao_trans = []) => {
+  return ao_trans
+    .filter((ln_transaction) => ln_transaction.mont > 12)
+    .sort((ln_a, ln_b) => ln_b.mont - ln_a.mont);
+};
+
+/**
+ * ? FUNCIÓN 14
+ */
+
+/**
+ * @description: Buscar la transacción por la dirección, y devolver cuántas transacciones hay mayores y menores a la suya
+ * @param {Array} aoArrayTransactions
+ * @param {String} asAdress
+ * @returns {Object}
+ */
+export const compareTrans = (aoTransactions = [], asAdress) => {
+  let lnMayores = 0;
+  let lnMenores = 0;
+
+  const correcta = aoTransactions.find(
+    (transaction) => transaction.direction === asAdress
+  );
+
+  aoTransactions.forEach((transaction) =>
+    transaction.mont > correcta.mont
+      ? lnMayores++ : transaction.mont != correcta.mont
+      ? lnMenores++ : lnMenores
+  );
+
+  return { lnMayores, lnMenores };
+};
+
+
+/**
+ * ? FUNCIÓN 15
+ */
+
+/**
+ * @description: Valida que todos los bloques mantienen la integridad de transacciones. Se le pasa un bloque y devuelve true si todos los bloques son válidos, y false en caso contrario.
+ * @param {Array} asBlocks
+ * @returns {Boolean}
+ */
+export const validateBlocks = (aoTransactions = []) => {
+
+  let prevHas;
+  let valid = true;
+  aoTransactions.forEach(transaction => {
+    (transaction.prevHas === prevHas || !transaction.prevHas) ? prevHas = transaction.hash : valid = false;
+    })
+
+  return valid
+}
+
