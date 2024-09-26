@@ -273,15 +273,15 @@ export const lastImpar = (an_array = []) =>
 
 /**
  * @description: Dado un array de ciudades, buscar la ciudad dada en el segundo parámetro y si la encuentra, la sustituye por el tercer parámetro.
- * @param {array} as_array
- * @param {String} as_ciudad
- * @param {String} as_newCiudad
+ * @param {array} asCities
+ * @param {String} asOldCity
+ * @param {String} asNewCity
  * @returns {Array}
  */
 
-export const replaceCity = (as_array = [], as_oldCity, as_newCity) => {
-  return as_array.map((ln_city) =>
-    ln_city === as_oldCity ? as_newCity : ln_city
+export const replaceCity = (asCities = [], asOldCity, asNewCity) => {
+  return asCities.map((ln_city) =>
+    ln_city === asOldCity ? asNewCity : ln_city
   );
 };
 
@@ -290,15 +290,15 @@ export const replaceCity = (as_array = [], as_oldCity, as_newCity) => {
  */
 
 /**
- * @description: Filtrar lastransacciones cuyo monto sea mayor que 12, ordenadas de mayor a menor
- * @param {Array} ao_ciudad
+ * @description: Filtrar las transacciones cuyo monto sea mayor que 12, ordenadas de mayor a menor
+ * @param {Array} aoTrans
  * @returns {Array}
  *
  */
-export const filterTrans = (ao_trans = []) => {
-  return ao_trans
-    .filter((ln_transaction) => ln_transaction.mont > 12)
-    .sort((ln_a, ln_b) => ln_b.mont - ln_a.mont);
+export const filterTrans = (aoTrans = []) => {
+  return aoTrans
+    .filter((lnTransaction) => lnTransaction.mont > 12)
+    .sort((lnA, lnB) => lnB.mont - lnA.mont);
 };
 
 /**
@@ -312,20 +312,22 @@ export const filterTrans = (ao_trans = []) => {
  * @returns {Object}
  */
 export const compareTrans = (aoTransactions = [], asAdress) => {
-  let lnMayores = 0;
-  let lnMenores = 0;
+  let lnBigger = 0;
+  let lnSmaller = 0;
 
-  const correcta = aoTransactions.find(
-    (transaction) => transaction.direction === asAdress
+  const loCorrect = aoTransactions.find(
+    (loTransaction) => loTransaction.direction === asAdress 
   );
 
-  aoTransactions.forEach((transaction) =>
-    transaction.mont > correcta.mont
-      ? lnMayores++ : transaction.mont != correcta.mont
-      ? lnMenores++ : lnMenores
+  aoTransactions.forEach((loTransaction) => 
+    loTransaction.mont > loCorrect.mont
+      ? lnBigger++
+      : loTransaction.mont != loCorrect.mont
+      ? lnSmaller++
+      : lnSmaller
   );
 
-  return { lnMayores, lnMenores };
+  return { lnBigger, lnSmaller };
 };
 
 
@@ -338,14 +340,138 @@ export const compareTrans = (aoTransactions = [], asAdress) => {
  * @param {Array} asBlocks
  * @returns {Boolean}
  */
-export const validateBlocks = (aoTransactions = []) => {
+export const validateBlocks = (asBlocks = []) => {
+  let lnPrevHas;
+  let lbValid = true;
 
-  let prevHas;
-  let valid = true;
-  aoTransactions.forEach(transaction => {
-    (transaction.prevHas === prevHas || !transaction.prevHas) ? prevHas = transaction.hash : valid = false;
-    })
+  asBlocks.forEach((loTransaction) => {
+    loTransaction.prevHas === lnPrevHas || !loTransaction.prevHas
+      ? (lnPrevHas = loTransaction.hash)
+      : (lbValid = false);
+  });
 
-  return valid
+  return lbValid;
+};
+
+/**
+ * ? FUNCIÓN 16
+ */
+
+/**
+ * @description: Usando recude, obten el máximo de un array
+ * @param {Array} aoNumbers
+ * @returns {Number}
+ */
+export const reduceArray = (aoNumbers = []) => {
+  return aoNumbers.reduce((lnAcc, lnNumber) =>
+    lnAcc > lnNumber ? lnAcc : lnNumber
+  );
+};
+
+/**
+ * ? FUNCIÓN 17
+ */
+
+/**
+ * @description: Usando recude, elimina los duplicados de un array
+ * @param {Array} aoNumbers
+ * @returns {Number}
+ */
+export const reduceArray2 = (aoNumbers = []) => {
+  return aoNumbers.reduce((anAcc, anNumber) => {
+    if (!anAcc.find(anItem => anItem === anNumber)) { 
+      anAcc.push(anNumber);
+    }
+    return anAcc;
+  }, []);
+};
+
+/**
+ * ? FUNCIÓN 18
+ */
+
+/**
+ * @description: Dado un array de nombres y un limitador numérico, asignar a cada nombre un número aleatorio sin exceder el límite.
+ * @param {Array} aoNames
+ * @param {Number} anLimit
+ * @returns {Object}
+ */
+export const aleatorio = (aoNames = [], anLimit) => {
+  const loNames = [...aoNames]; // copia del argumento array
+  let lnCounter = 1;
+  const loRtn = [];
+
+  if (anLimit >= loNames.length) {
+    aoNames.map(() => {
+      let lnValue = Math.floor(Math.random() * loNames.length); // numero aleatorio
+      let lsName = loNames.splice(lnValue, 1)[0];
+      loRtn[lsName] = lnCounter++;
+    });
+  }
+
+  return loRtn;
+};
+
+/* EJERCICIO DESARROLLADO
+let aoNames = ["ana","luis", "sara", "victor", "bon", "casu"]
+
+const aleatorio = (aoNames = [], number) => {
+  const array = [];
+  
+  if (number >= aoNames.length){
+    let contador = 0;
+    
+      const numeros = [];
+      
+      while(numeros.length < aoNames.length){
+        let random = Math.floor(Math.random() * aoNames.length) +1;
+        
+       let contains = numeros.filter((n) => n === random);
+        let b = !!contains[0]
+       if(!b){
+         //console.log(contains, random, "r")
+         //console.log(numeros, "n1")
+         numeros.push(random)
+         //console.log(numeros, "n2")
+       };
+        
+    }
+    aoNames.map((name) => {
+    array[name] = numeros[contador++]
+  });
+  }
+ 
+  return array
+  
 }
 
+*/
+
+
+// ? SEGUNDA FORMA DE RESOLVER EJERCICIO 18
+/**
+ * @description: Dado un array de nombres y un limitador numérico, asignar a cada nombre un número aleatorio sin exceder el límite.
+ * @param {Array} aoNames
+ * @param {Number} anLimit
+ * @returns {Object}
+ */
+export const aleatorio2 = (aoNames = [], anLimit) => {
+  const loSets = [];
+  
+  if (anLimit >= aoNames.length){
+    
+      const loNumberSet = [];
+      
+      while(loNumberSet.length < aoNames.length){
+         let lnRandom = Math.floor(Math.random() * aoNames.length) +1;
+         if (!loNumberSet.filter((n) => n === lnRandom)[0]) loNumberSet.push(lnRandom);
+      }
+    
+    // Asignar a cada nombre un número aleatorio del loSets
+    let lnContador = 0;
+    aoNames.map((name) => loSets[name] = loNumberSet[lnContador++]);
+  }
+ 
+  return loSets
+  
+}
