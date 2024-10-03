@@ -475,3 +475,138 @@ export const aleatorio2 = (aoNames = [], anLimit) => {
   return loSets
   
 }
+
+
+/**
+ * ? FUNCIÓN 18
+ */
+
+/**
+ * @description: Dado un array de nombres y un limitador numérico, asignar a cada nombre un número aleatorio sin exceder el límite.
+ * @param {Array} aoFact
+ * @returns {Object}
+ */
+export const calcularFacturacion = (aoFact = []) => {
+  return aoFact.reduce((acumulador, actual) => {
+    if (!acumulador[actual.nombre]) {
+      acumulador[actual.nombre] = 0; 
+    }
+    acumulador[actual.nombre] += actual.total; 
+    return acumulador;
+  }, {});
+}
+
+/**
+ * const facturas  = [
+  {nombre: "Luis", total:300, cpu: [60, 90, 10]},
+  {nombre: "Sara", total:200, cpu: [50, 90, 30]},
+  {nombre: "Sara", total:100, cpu: [70,70,80]},
+  {nombre: "Carlos", total:300, cpu: [90,90,90]},
+  {nombre: "Luis", total:200, cpu: [100,70,40]},
+]
+
+const calcularFacturacion = (facturas = []) => {
+  const resultado = facturas.reduce((acumulador, actual) => {
+ 
+    if (!acumulador[actual.nombre]) {
+      acumulador[actual.nombre] = 0; 
+    }
+    
+    acumulador[actual.nombre] += actual.total;
+    return acumulador;
+  }, {});
+
+  
+  return Object.keys(resultado).map(nombre => ({
+    nombre: nombre,
+    total: resultado[nombre]
+  }));
+}
+
+console.log(calcularFacturacion(facturas));
+ */
+
+/**
+ * ? FUNCIÓN 19
+ */
+
+/**
+ * @description: Dado un array de nombres y un limitador numérico, asignar a cada nombre un número aleatorio sin exceder el límite.
+ * @param {Array} aoList
+ * @param {Number} anNum
+ * @returns {String}
+ */
+export const eleccionDelegado = (aoList = [], anNum) => {
+  if (!Array.isArray(aoList) && typeof anNum == 'Number'){
+    return "Error";
+  } else {
+    let lnRandom = Math.floor(Math.random() * (anNum +1));
+    return aoList[lnRandom]
+  }
+}
+
+
+/**
+ * @description: Dado un array de palabras, contar cuantas vocales hay en total.
+ * @param {Array} aoList
+ * @returns {Object}
+ */
+export const contarVocales = (aoList = []) => {
+  let lsWords = [];
+  
+  for (let element of aoList) {
+    lsWords = [...lsWords, ...element];
+  }
+ 
+  const vocales = ['a', 'e', 'i', 'o', 'u'];
+
+
+  return lsWords.reduce((acumulador, actual) => {
+    if (vocales.includes(actual.toLowerCase())) {
+      acumulador[actual] = (acumulador[actual] || 0) + 1;
+    }
+    return acumulador;
+  }, {});
+};
+
+
+/**
+ * @description: Dado un array de palabras, devolver la palabra con mayor longitud.
+ * @param {Array} aoList
+ * @returns {Object}
+ */
+export const mayorLong = (aoList = []) => {
+  aoList.reduce((acumulador, actual) => actual.length > acumulador.length ? actual : acumulador, ""); 
+  return {palabraLarga:palabraLarga.length};
+};
+
+/**
+ * @description: Dado un array de palabras, eliminar las duplicadas.
+ * @param {Array} aoList
+ * @returns {Object}
+ */
+export const eliminarDup = (aoList = []) => {
+  return [...new Set(aoList)];
+};
+
+
+/**
+ * @description: Dado un array de palabras, crear un objeto cuya clave sea la palabra y valor sea el numero de veces que aparece.
+ * @param {Array} aoList
+ * @returns {Object}
+ */
+export const contPalabras = (aoList = []) => {
+  
+};
+
+
+
+/**
+ * @description: Dado un array de palabras, contar cuantas vocales hay en total.
+ * @param {Array} aoList
+ * @returns {Object}
+ */
+export const contarVocales2 = (aoList = []) => {
+  lsWords.reduce(
+    (acumulador, actual) => (acumulador += actual.match(/[aeiou]/g).length), 0);
+};

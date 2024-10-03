@@ -17,6 +17,11 @@ import {
   
 } from "./helpers/script.js";
 
+import { 
+
+  
+ } from "./helpers/ejUD1.js"
+
 // --------- Llamada a la funcion ---------
 
 // EJERCICIO 1
