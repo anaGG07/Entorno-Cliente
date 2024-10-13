@@ -1,0 +1,44 @@
+<!-- Crea una página con tres botones, cada uno mostrando un mensaje de bienvenida en un idioma 
+ diferente (ruso, español e inglés). Al hacer clic en un botón, se muestra el mensaje correspondiente 
+ debajo del botón, utilizando JavaScript para actualizar el contenido de un párrafo asociado a cada idioma.
+ -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <!-- Primer botón -->
+    <p id="ruso"></p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('ruso').innerHTML = 'Bienvenido en Ruso' "
+    >
+      Ruso
+    </button>
+
+    <!-- Segundo botón -->
+    <p id="español"></p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('español').innerHTML = 'Bienvenido en Español' "
+    >
+      español
+    </button>
+
+    <!-- Tercer botón -->
+    <p id="ingles"></p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('ingles').innerHTML = 'Bienvenido en Ingles' "
+    >
+      ingles
+    </button>
+  </body>
+</html>
