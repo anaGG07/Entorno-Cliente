@@ -1,0 +1,32 @@
+{
+    "products":[
+        {
+            "id":1,
+            "name": "Zapatillas",
+            "price": "19.99",
+            "description": "Zapatillas de deporte",
+            "category": "ropa"
+        },
+        {
+            "id":2,
+            "name": "Camisa básica",
+            "price": "19.99",
+            "description": "Zapatillas de deporte",
+            "category": "ropa"
+        },
+        {
+            "id":3,
+            "name": "Pantalón Chino",
+            "price": "19.99",
+            "description": "Zapatillas de deporte",
+            "category": "ropa"
+        },
+        {
+            "id":4,
+            "name": "Zapatillas",
+            "price": "19.99",
+            "description": "Zapatillas de deporte",
+            "category": "ropa"
+        }
+    ]
+}

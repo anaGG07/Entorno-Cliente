@@ -1,0 +1,144 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Producto 1",
+      "precio": 100,
+      "imagen": "https://via.placeholder.com/150",
+      "categoria": 2
+    },
+    {
+      "id": "2",
+      "nombre": "Producto 2",
+      "precio": 100,
+      "imagen": "https://via.placeholder.com/150",
+      "categoria": 1
+    },
+    {
+      "id": "3",
+      "nombre": "Producto 3",
+      "precio": 100,
+      "imagen": "https://via.placeholder.com/150",
+      "categoria": 4
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nombre": "Electronica"
+    },
+    {
+      "id": "2",
+      "nombre": "Ropa"
+    },
+    {
+      "id": "3",
+      "nombre": "Material Escolar"
+    },
+    {
+      "id": "4",
+      "nombre": "Material Escolar I"
+    }
+  ],
+  "comentarios": [
+    {
+      "id": "1",
+      "producto": 1,
+      "usuario": "Pepe",
+      "comentario": "Excelente valoracion",
+      "valoracion": 5
+    }
+  ],
+  "historialPrecios": [
+    {
+      "id": "647a",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "6c7c",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "bbca",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "ad0e",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "8e95",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "683f",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "0ca5",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "7d6e",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    },
+    {
+      "id": "94f5",
+      "productId": 1,
+      "precios": [
+        23,
+        26,
+        21.75,
+        19.99
+      ]
+    }
+  ]
+}
